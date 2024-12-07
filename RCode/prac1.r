@@ -63,8 +63,6 @@ while (i <= 50) {
 # Use a while loop to display numbers between 10 and 50
 # Initialize the counter
 i <- 10
-
-# Use a while loop to display numbers from 10 to 50
 while (i <= 50) {
   result <- i * 5
   print(paste("5x", i, "-", result))
