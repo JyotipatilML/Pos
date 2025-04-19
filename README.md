@@ -1,19 +1,32 @@
-letter = input("Enter any alphabet: ").lower()
+import _thread
+import time
 
-if letter in ('a', 'e', 'i', 'o', 'u'):
-    print("It is a vowel.")
-elif letter == 'y':
-    print("Sometimes the letter 'y' stands for a vowel, and sometimes it does not.")
-else:
-    print("It is not a vowel.")
-    
-    
-    
-    
-# Program to check if a number is positive or negative
-number = int(input("Enter a number: "))
+def print_time(threadName, delay):
+    count = 0
+    while count < 5:
+        time.sleep(delay)
+        count += 1
+        print("%s: %s" % (threadName, time.ctime(time.time())))
 
-if number >= 0:
-    print("The number is positive.")
-else:
-    print("The number is negative.")
+try:
+    _thread.start_new_thread(print_time, ("Thread-1", 2,))
+    _thread.start_new_thread(print_time, ("Thread-2", 4,))
+except:
+    print("Error: unable to start thread")
+
+while 1:
+    pass
+*
+from threading import *
+import time
+
+def thread1():
+    for i in range(5):
+        print("this is non-daemon thread")
+        time.sleep(2)
+
+T = Thread(target=thread1)
+T.start()
+
+time.sleep(5)
+print("Main thread execution")
